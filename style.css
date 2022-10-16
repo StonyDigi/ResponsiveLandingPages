@@ -1,71 +1,44 @@
-* { /*
-        * {
-            minden css beállításra vonatkozik!!!
-        }      */
-    /*A CSS box-sizingtulajdonság lehetővé teszi, hogy belefoglaljuk a kitöltést és a szegélyt az elem teljes szélességébe és magasságába.*/
-    /*padding, border nem fogja befolyásolni az elem méretét a box-sizing: border-box; hatására*/
-    /*Ezzel védjük a reszopnzivitást!!!!*/
-    /*Ha megjelenik a horizontális scroll akkor az oldal nem reszponzív!!!*/
-    /*Ha border box nélkül adunk hozzá padding: 20px 200px; akkor vége a reszponzivitásnak!!!*/
+*{
     box-sizing: border-box;
-    /*Fontos !!! Ha horizotálisan lehet görgetni az oldalt akkor a responsive-itás megszűnik*/
 }
 
-body {
-    /*mindig bal felülről és a széléről pixelpontosan számolja*/
+body{
     margin: 0;
     padding: 0;
-    /*MAC oprendszer és eszközökre*/
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
-header {
-    /*flexbox - mindig a szülő elemekre kell alkalmaznunk*/
-    /*Header formázása, Mindig akkora legyen mint a böngésző ablakom*/
+header{
     width: 100%;
     height: 80px;
-    /*flex hatására egymás mellé kerülnek az elemek mint ha inline elemek lennének.*/
     display: flex;
-    /*tartalom igazítása jusify_content:*/
-    /*űr van közötte, jobbra és balra tolja, start - end pozícióra vált*/
-    justify-content: space-between; /*Elemek horizontális igazítása (X-tengely) mentén * "margin: 0 auto; újabb megfelelője a justify-content"/*/
-    align-items: center; /*Elemek vertikális igazítása (Y- tengely) mentén* "position:absolute újabb megfelelője" a beállított 80px magasság közepén kell, hogy 
-    legyen.*/
+    justify-content: space-between;  /* Elemek horizontális igazítása (x-tengely) */
+    align-items: center; /* Elemek vertikális igazítása (y-tengely) */
     padding: 20px 200px;
 }
 
-nav ul {
-    /*inline-elemekké alakítja*/
+nav ul{
     display: flex;
-    /*alapértelmezett lista gömbőcöket leveszi*/
     list-style: none;
 }
 
-nav ul li {
-    /*kimenet: Kezdőoldal Rólunk Szolgáltatások Kapcsolat, szöveg közé ad 16px-t*/
-    margin-left:  15px;
-    
+nav ul li{
+    margin-left: 15px;
 }
 
-nav ul li a {
+nav ul li a{
     color: #000;
-    /*leveszi a hivatkozás alapértelmezetten létrehozott aláhúzását*/
     text-decoration: none;
 }
 
-/*Mi történjen, ha a listaelemek fölé viszem az egeret:effect*/
-nav ul li a:hover {
-    /*jelenjen meg egy alsó keret*/
+nav ul li a:hover{
     border-bottom: 2px solid #000;
 }
 
-#background {
+#background{
     width: 100%;
-    /*80%-a a teljes képernyő magasságának*/
     height: 80vh;
-    /*egyben adtam meg a képem, tulajdnoságait egyben, de csak a sima "background-nál működik" a background-image-nél NEM!!!!*/
     background: url("background.jpg") no-repeat center;
-    /*akkor tudjuk x, y irányba igazítani, ha van szélessége és magassága az elemnek!!!!*/
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -74,50 +47,37 @@ nav ul li a:hover {
 }
 
 #text h1{
-    text-align: center;
     font-size: 50px;
-    /*szöveg betűi közötti távolság*/
     letter-spacing: 5px;
-    /*h1 alapeltartását veszi le a margin:0*/
     margin: 0;
 }
 
-#text p {
+#text p{
     font-size: 17px;
-    /*teljes szélesség 70%-a*/
-    width:70%;
+    width: 70%;
     margin: 15px auto;
 }
 
-#text button {
-    /*gomb szétnyújtása = balra és jobbra ad hozzá belső eltartást a gombhoz*/
+#text button{
     padding: 10px 60px;
-    /*ettől lesz fekete szegély körülötte, leveszi az alap gomb hátteret!!!*/
     background: none;
+    border: 2px solid #000;
     font-size: 18px;
-    /*lejebb visszük 10 pixelllel a szöveghez képest*/
     margin-top: 10px;
-    /*érzékeli, ha gombon van akkor az egér mutatót átváltoztatja pointerre kézre*/
     cursor: pointer;
+    
 }
 
-/*gomb animációja, ha rajta van az egér változzon feketére + fehér szöveg*/
-#text button:hover {
+#text button:hover{
     background: #000;
-    color:white;
-    /*mindenre tulajdonságra hasson az effekt és a sebessége*/
-    transition: all 0.3s ease-out;
+    color: #fff;
+    transition: all 0.3s ease;
 }
 
-#about {
-    /*fent,lent, jobbra-balra*/
-    padding: 100px 0;
+#about{
+    padding: 100px 0px;
     background: #161616;
     color: #fff;
-    /*Flexbox hibába esés, nem úgy néz ki amit akarunk : Rólunk cím balra beragad = mivel a flex hatására a gyermek elemre lesz érvényes, inline rakta az elemeket
-    nekünk egymás alatt lenne jó most, de felül kell írnunk flex-direction: column, és az inline-ból oszlopos elrendezés lesz egymás alá rendezi, 
-    egy sorban csak egy oszlop lehet
-     */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,164 +86,173 @@ nav ul li a:hover {
 }
 
 #about p {
-    margin: 0px 100px;
+    width: 70%;
 }
 
-#services-container {
-    
-    margin-bottom: 100px;
-    background: #fff;
-    color: #000;
-    display: flex;
+#about h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#services {
+    padding: 100px 0px;
     text-align: center;
-    justify-content: space-between;
-}
-
-.service  {
-    background: #000;
-    color: #fff;
-    padding: 60px;
-    border: 1px solid #000;
-    justify-content: space-between;
-    margin: 20px;
-    border-radius: 15px;
-}
-
-.service2 {
-    
-    background: #fff;
-    color: #000;
-    padding: 60px;
-    border: 1px solid #000;
-    justify-content: space-between;
-    margin: 20px;
-    border-radius: 15px;
-}
-
-.service3 {
-    background: #000;
-    color: #fff;
-    padding: 60px;
-    border: 1px solid #000;
-    justify-content: space-between;
-    margin: 20px;
-    border-radius: 15px;
-
 }
 
 #services h2 {
-    margin-top: 130px;
-    text-align: center;
-    letter-spacing: 2px;
-    font-weight: 600;
-    font-size: 35px;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#services-container {
+    display: flex;
+    width: 70%;
+    margin: 30px auto;
+    align-items: center;
+    gap: 30px;
+}
+
+.service {
+    height: 300px;
+    border: 2px solid #000;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: #fff;
+    
+}
+
+.service:nth-child(2) {
+    background: #fff;
+    color: #000;
+}
+
+.service h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.service button {
+    padding: 10px 30px;
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.service button:hover {
+    background-color: #fff;
+    color: #000;
+    transition: all 0.2s ease;
+}
+
+.service:nth-child(2) button{
+    border: 2px solid #000;
+    color: #000;
+}
+
+.service:nth-child(2) button:hover {
+    background: #000;
+    color: #fff;
+    transition: all 0.2s ease;
+}
+
+#contact {
+    padding: 100px 0px;
+    background: #161616;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #contact h2 {
     font-size: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+#contact form {
+    width: 60%;
     text-align: center;
 }
 
-#contact {
-    padding: 90px 10px;
-    background: #000;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-
-form {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-form textarea {
-
-    outline: none;
-    margin: 20px 0;
-    /*nem tudjuk a méretét állítani a textarea ablakának*/
-    resize:none;
-}
-
-form input {
-    outline: none;
-    max-width: 600px;
-    margin: 10px 0;
+#contact form input, textarea {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
     padding: 10px;
+    color: #000;
+    resize: none;
+    outline: none;
 }
 
-form button {
-    width: 30%;
+#contact form button {
+    padding: 10px 30px;
     background: none;
-    border: 3px solid #fff;
+    border: 2px solid #fff;
     color: #fff;
-    padding: 10px;
-    margin: 0px 200px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
     cursor: pointer;
-    
+    margin-top: 10px;
 }
 
-form button:hover {
-    background: #fff;
-    color:#000;
-    transition:all 0.2s ease;
+#contact form button:hover {
+    background-color: #fff;
+    color: #000;
+    transition: all 0.2s ease;
 }
 
 footer {
     padding: 40px 0;
-    color: #2b2a2a;
     text-align: center;
     font-weight: bold;
 }
 
 #hamburger {
-    font-size: 35px;
+    font-size: 40px;
     cursor: pointer;
     display: none;
 }
+
 /*@MEDIA QUERY*/
 
 @media screen and (max-width: 1380px) {
-
     #services-container {
         flex-direction: column;
     }
 
     .service {
-
         padding: 0 20px;
-
     }
 
     #contact form {
         width: 50%;
-    }
-
+    }   
 }
 
 @media screen and (max-width: 1100px) {
     nav {
         display: none;
     }
-
     #hamburger {
         display: block;
     }
-    
 }
 
-@media  screen and (max-width: 675px) {
-    header{
+@media screen and (max-width: 675px) {
+    header {
         padding: 20px 50px;
-    }  
+    }
+
+    #text h1 {
+        font-size: 20px;
+        
+    }
+
+    #contact form {
+        width: 90%;
+    }
 }
